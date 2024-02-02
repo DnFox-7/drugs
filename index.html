@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VENDA</title>
+   
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('imgs/seu-fundo.png.jpg') center/cover no-repeat;
+        }
+
+        video {
+            width: 500px;
+            height: auto;
+            display: none;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 50px; 
+            word-spacing: 8px; 
+            color: rgb(255, 255, 255);
+            font-family: monospace;
+            border-right: 4px solid;
+            width: 30ch;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 5s steps(30),
+            blinking 0.5s infinite step-end;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+        }
+        @keyframes blinking {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        #buy-now {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #start-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;       
+        }
+    </style>
+</head>
+
+<body>
+        <h1>COMPRA AGORA, SEU VAGABUNDO</h1>
+
+        <video id="main-video" playsinline>
+            <source src="videos/teste.mp4.mp4" type="video/mp4">
+        </video>
+
+        <button id="buy-now" onclick="comprarAgora()">Compre Agora</button>
+        <button id="start-button" onclick="iniciarVideo()">Iniciar</button>
+    </a>
+
+    <script>
+        function iniciarVideo() {
+            const video = document.getElementById('main-video');
+            const startButton = document.getElementById('start-button');
+            const buyNowButton = document.getElementById('buy-now');
+
+            video.style.display = 'block';
+            video.play();
+
+            startButton.style.display = 'none';
+
+            video.addEventListener('ended', function() {
+                buyNowButton.style.display = 'block';
+            });
+        }
+
+        function comprarAgora() {
+            window.location.href = 'https://produto.mercadolivre.com.br/MLB-3504792808-pc-gamer-i9-13900k-128gb-ddr5-nvme-2tb-rtx-4090-fonte-1500w-_JM?matt_tool=14213447&matt_word=&matt_source=bing&matt_campaign=MLB_ML_BING_AO_CE-ALL-ALL_X_PLA_ALLB_TXS_ALL&matt_campaign_id=382858295&matt_ad_group=CE&matt_match_type=e&matt_network=o&matt_device=c&matt_keyword=default&msclkid=6b506504073d19ffecb100b82c624e15&utm_source=bing&utm_medium=cpc&utm_campaign=MLB_ML_BING_AO_CE-ALL-ALL_X_PLA_ALLB_TXS_ALL&utm_term=4581596253419758&utm_content=CE'; // Substitua pelo URL desejado
+        }
+    </script>
+</body>
+</html>
